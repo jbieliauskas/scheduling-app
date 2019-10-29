@@ -1,0 +1,23 @@
+{
+  "name": "scheduling-app",
+  "version": "0.1.0",
+  "description": "A desktop app to schedule various tasks.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justasbieliauskas/scheduling-app.git"
+  },
+  "author": "Justas Bieliauskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justasbieliauskas/scheduling-app/issues"
+  },
+  "homepage": "https://github.com/justasbieliauskas/scheduling-app#readme",
+  "devDependencies": {
+    "electron": "^7.0.0"
+  }
+}

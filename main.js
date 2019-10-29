@@ -1,27 +1,33 @@
 const { app, BrowserWindow } = require('electron');
 
-let win;
+class SchedulingApp {
+  constructor() {
+    this.win = null;
+  }
 
-function createWindow () {
-  win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true
-    },
-  });
+  run() {
+    app.on('ready', this.createWindow);
+    app.on('activate', () => {
+      if(this.win === null) {
+        this.createWindow();
+      }
+    });
+  }
 
-  win.loadFile('index.html');
-
-  win.on('closed', () => {
-    win = null;
-  });
+  createWindow() {
+    this.win = new BrowserWindow({
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true
+      },
+    });
+    this.win.loadFile('index.html');
+    this.win.on('closed', () => {
+      this.win = null;
+    });
+  }
 }
 
-app.on('ready', createWindow);
-
-app.on('activate', () => {
-  if(win === null) {
-    createWindow();
-  }
-});
+const schedulingApp = new SchedulingApp();
+schedulingApp.run();

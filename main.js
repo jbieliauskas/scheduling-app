@@ -22,7 +22,7 @@ class SchedulingApp {
         nodeIntegration: true
       },
     });
-    this.win.loadFile('index.html');
+    this.win.loadFile('public/index.html');
     this.win.on('closed', () => {
       this.win = null;
     });
